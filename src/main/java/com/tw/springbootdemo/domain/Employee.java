@@ -1,7 +1,5 @@
 package com.tw.springbootdemo.domain;
 
-import org.springframework.context.annotation.Bean;
-
 public class Employee {
     private int id;
     private String name;
