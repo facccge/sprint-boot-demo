@@ -13,6 +13,9 @@ import org.springframework.test.web.servlet.result.MockMvcResultHandlers;
 import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
+
 @RunWith(SpringRunner.class)
 @SpringBootTest
 public class HelloWorldControllerTests {
@@ -27,6 +30,7 @@ public class HelloWorldControllerTests {
     public void getHello() throws Exception {
         mvc.perform(MockMvcRequestBuilders.get("/hello").accept(MediaType.APPLICATION_JSON))
                 .andExpect(MockMvcResultMatchers.status().isOk())
+                .andExpect(content().string("Hello World"))
                 .andDo(MockMvcResultHandlers.print())
                 .andReturn();
     }
